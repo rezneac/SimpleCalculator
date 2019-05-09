@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.hp.calculator.Calculator">
+
+    <EditText
+        android:id="@+id/calculateEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"
+        android:singleLine="false"
+        android:clickable="false"
+        android:longClickable="false"/>
+
+    <Button
+        android:id="@+id/bt1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="175dp"
+        android:text="@string/bt1"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/bt2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="175dp"
+        android:layout_toRightOf="@id/bt1"
+        android:text="@string/bt2"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/bt3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="175dp"
+        android:layout_toRightOf="@id/bt2"
+        android:text="@string/bt3"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/bt4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/bt1"
+        android:layout_marginTop="10dp"
+        android:text="@string/bt4"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/bt5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/bt2"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/bt4"
+        android:text="@string/bt5"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/bt6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/bt3"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/bt5"
+        android:text="@string/bt6"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/bt7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/bt4"
+        android:layout_marginTop="10dp"
+        android:text="@string/bt7"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/bt8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/bt7"
+        android:layout_alignLeft="@+id/bt5"
+        android:layout_marginTop="10dp"
+        android:text="@string/bt8"
+        android:textStyle="bold" />
+
+
+    <Button
+        android:id="@+id/bt9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/bt8"
+        android:layout_alignLeft="@+id/bt6"
+        android:layout_marginTop="10dp"
+        android:text="@string/bt9"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/bt0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/bt8"
+        android:layout_below="@id/bt8"
+        android:layout_marginTop="10dp"
+        android:text="@string/bt0"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/calculateEditText"
+        android:layout_marginTop="20dp"
+        android:text="@string/Delete"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/EqualsBt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/bt0"
+        android:layout_alignBottom="@+id/bt9"
+        android:layout_alignLeft="@+id/bt9"
+        android:layout_alignStart="@+id/bt9"
+        android:layout_marginTop="10dp"
+        android:text="="
+        android:textStyle="bold"
+        />
+
+    <Button
+        android:id="@+id/PluseBt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/btDeleteLastCrt"
+        android:layout_alignLeft="@+id/bt3"
+        android:layout_alignStart="@+id/bt3"
+        android:layout_below="@id/calculateEditText"
+        android:layout_marginTop="20dp"
+        android:layout_alignBaseline="@id/btDelete"
+        android:text="+"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/MinuseBt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/PluseBt"
+        android:layout_alignBottom="@+id/PluseBt"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:text="-"
+        android:textStyle="bold" />
+
+
+    <ImageButton
+        android:id="@+id/btDeleteLastCrt"
+        android:layout_width="75dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/calculateEditText"
+        android:layout_marginTop="20dp"
+        android:layout_toLeftOf="@+id/bt3"
+        android:layout_toStartOf="@+id/bt3"
+        app:srcCompat="?attr/actionModeCloseDrawable" />
+
+
+</RelativeLayout>
