@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Welcome extends AppCompatActivity {
 
@@ -25,10 +26,17 @@ public class Welcome extends AppCompatActivity {
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent myIntent = new Intent(Welcome.this,Calculator.class);
-                String context = editText.getText().toString();
-                myIntent.putExtra("UserName",context);
-                startActivity(myIntent);
+                String equalsEmpty = editText.getText().toString();
+                    if (equalsEmpty.matches("")) {
+                        Toast.makeText(Welcome.this, "You did not keep your name", Toast.LENGTH_SHORT).show();
+                        return;
+                }
+                else {
+                    Intent myIntent = new Intent(Welcome.this,Calculator.class);
+                    String context = editText.getText().toString();
+                    myIntent.putExtra("UserName",context);
+                    startActivity(myIntent);
+                }
 
 
             }
