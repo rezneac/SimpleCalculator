@@ -65,7 +65,7 @@ public class Calculator extends AppCompatActivity {
                     SharedPreferences.Editor editor = sharedPref.edit();
                     editor.putString(Values,editText.getText().toString());
                     editor.commit();
-                    //load values and make toast
+                    //load values and make toast.
                     String savedText = sharedPref.getString(Values,"");
 
                     Toast.makeText(Calculator.this, savedText,Toast.LENGTH_SHORT).show();
