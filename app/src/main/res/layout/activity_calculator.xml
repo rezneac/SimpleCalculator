@@ -178,5 +178,15 @@
         android:layout_toStartOf="@+id/bt3"
         app:srcCompat="?attr/actionModeCloseDrawable" />
 
+    <Button
+        android:id="@+id/makeToastSharedPref"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/EqualsBt"
+        android:layout_alignStart="@+id/EqualsBt"
+        android:layout_below="@+id/EqualsBt"
+        android:layout_marginTop="14dp"
+        android:text="Toast Shared Preferences" />
+
 
 </RelativeLayout>

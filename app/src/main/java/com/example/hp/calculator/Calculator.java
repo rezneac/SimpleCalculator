@@ -1,5 +1,6 @@
 package com.example.hp.calculator;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -10,10 +11,12 @@ import android.widget.Toast;
 
 public class Calculator extends AppCompatActivity {
 
-    Button button0, button1, button2, button3, button4, button5, button6, button7, button8, button9, buttonC, buttonPluse, buttonMinuse, buttonEquals;
+    Button button0, button1, button2, button3, button4, button5, button6, button7, button8, button9, buttonC, buttonPluse, buttonMinuse, buttonEquals,buttonSPref;
     ImageButton buttonCLC;
     int nr1, nr2;
     boolean add, sub;
+    final String Values = "values";
+    SharedPreferences sharedPref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +51,28 @@ public class Calculator extends AppCompatActivity {
         buttonPluse = (Button) findViewById(R.id.PluseBt);
         buttonMinuse = (Button) findViewById(R.id.MinuseBt);
         buttonEquals = (Button) findViewById(R.id.EqualsBt);
+        buttonSPref = (Button) findViewById(R.id.makeToastSharedPref);
+
+        buttonSPref.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (sharedPref == null){
+                    Toast.makeText(Calculator.this, "It emty, please calculate something",Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    //save values
+                    sharedPref = getPreferences(MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedPref.edit();
+                    editor.putString(Values,editText.getText().toString());
+                    editor.commit();
+                    //load values and make toast
+                    String savedText = sharedPref.getString(Values,"");
+
+                    Toast.makeText(Calculator.this, savedText,Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
 
 
         buttonEquals.setOnClickListener(new View.OnClickListener() {
@@ -64,6 +89,9 @@ public class Calculator extends AppCompatActivity {
                     add = false;
 
                 }
+
+
+
             }
         });
 
@@ -168,4 +196,6 @@ public class Calculator extends AppCompatActivity {
 
 
     }
+
+
 }
