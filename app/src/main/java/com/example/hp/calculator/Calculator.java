@@ -11,10 +11,10 @@ import android.widget.Toast;
 
 public class Calculator extends AppCompatActivity {
 
-    Button button0, button1, button2, button3, button4, button5, button6, button7, button8, button9, buttonC, buttonPluse, buttonMinuse, buttonEquals,buttonSPref;
+    Button button0, button1, button2, button3, button4, button5, button6, button7, button8, button9, buttonC, buttonPluse, buttonMinuse, buttonEquals, buttonSPref;
     ImageButton buttonCLC;
     int nr1, nr2;
-    boolean add, sub;
+    boolean add, sub,forSharedPref = false;
     final String Values = "values";
     SharedPreferences sharedPref;
 
@@ -56,19 +56,18 @@ public class Calculator extends AppCompatActivity {
         buttonSPref.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (sharedPref == null){
-                    Toast.makeText(Calculator.this, "It emty, please calculate something",Toast.LENGTH_SHORT).show();
-                }
-                else {
+                if (forSharedPref = false) {
+                    Toast.makeText(Calculator.this, "It emty, please calculate something", Toast.LENGTH_SHORT).show();
+                } else if (forSharedPref = true) {
                     //save values
                     sharedPref = getPreferences(MODE_PRIVATE);
                     SharedPreferences.Editor editor = sharedPref.edit();
-                    editor.putString(Values,editText.getText().toString());
+                    editor.putString(Values, editText.getText().toString());
                     editor.commit();
                     //load values and make toast.
-                    String savedText = sharedPref.getString(Values,"");
+                    String savedText = sharedPref.getString(Values, "");
 
-                    Toast.makeText(Calculator.this, savedText,Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Calculator.this, savedText, Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -79,6 +78,7 @@ public class Calculator extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 nr1 = Integer.parseInt(editText.getText() + "");
+                forSharedPref = true;
 
                 if (add == true) {
 
@@ -89,7 +89,6 @@ public class Calculator extends AppCompatActivity {
                     add = false;
 
                 }
-
 
 
             }
