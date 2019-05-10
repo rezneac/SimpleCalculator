@@ -15,7 +15,7 @@ public class Calculator extends AppCompatActivity {
     Button button0, button1, button2, button3, button4, button5, button6, button7, button8, button9, buttonC, buttonPluse, buttonMinuse, buttonEquals, buttonSPref;
     ImageButton buttonCLC;
     int nr1, nr2;
-    boolean add, sub,forSharedPref = false;
+    boolean add, sub, forSharedPref = false;
     final String Values = "values";
     SharedPreferences sharedPref;
 
@@ -54,13 +54,14 @@ public class Calculator extends AppCompatActivity {
         buttonEquals = (Button) findViewById(R.id.EqualsBt);
         buttonSPref = (Button) findViewById(R.id.makeToastSharedPref);
 
+
         buttonSPref.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String equalsEpt = editText.getText().toString();
                 if (TextUtils.isEmpty(equalsEpt)) {
                     Toast.makeText(Calculator.this, "It emty, please calculate something", Toast.LENGTH_SHORT).show();
-                } else  {
+                } else {
                     //save values
                     sharedPref = getPreferences(MODE_PRIVATE);
                     SharedPreferences.Editor editor = sharedPref.edit();
@@ -181,17 +182,38 @@ public class Calculator extends AppCompatActivity {
         buttonPluse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                nr2 = Integer.parseInt(editText.getText() + "");
-                editText.setText("+");
-                add = true;
+                String equalsEpt = editText.getText().toString();
+                if (TextUtils.isEmpty(equalsEpt)) {
+
+                }
+                else if (equalsEpt.matches("\\+")){
+
+                }
+                else {
+                    nr2 = Integer.parseInt(editText.getText() + "");
+                    editText.setText("+");
+                    add = true;
+                }
+
             }
         });
         buttonMinuse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                nr2 = Integer.parseInt(editText.getText() + "");
-                editText.setText("-");
-                add = true;
+                String equalsEpt = editText.getText().toString();
+                if (TextUtils.isEmpty(equalsEpt)) {
+
+                }
+                else if (equalsEpt.matches("-")){
+
+                }
+                else {
+                    nr2 = Integer.parseInt(editText.getText() + "");
+                    editText.setText("-");
+                    add = true;
+
+                }
+
             }
         });
 
