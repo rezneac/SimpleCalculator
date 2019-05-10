@@ -3,6 +3,7 @@ package com.example.hp.calculator;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -56,9 +57,10 @@ public class Calculator extends AppCompatActivity {
         buttonSPref.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (forSharedPref = false) {
+                String equalsEpt = editText.getText().toString();
+                if (TextUtils.isEmpty(equalsEpt)) {
                     Toast.makeText(Calculator.this, "It emty, please calculate something", Toast.LENGTH_SHORT).show();
-                } else if (forSharedPref = true) {
+                } else  {
                     //save values
                     sharedPref = getPreferences(MODE_PRIVATE);
                     SharedPreferences.Editor editor = sharedPref.edit();
