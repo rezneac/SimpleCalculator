@@ -17,19 +17,16 @@ import net.objecthunter.exp4j.ExpressionBuilder;
 public class Calculator extends AppCompatActivity {
 
     Button buttonSPref, buttonEquals, buttonC, button1, button2, button3, button4, button5, button6, button7, button8, button9, button0, buttonPluse, buttonMinuse;
-//    private int[] NumericButton = {R.id.bt0, R.id.bt1, R.id.bt2, R.id.bt3, R.id.bt4, R.id.bt5, R.id.bt6, R.id.bt7, R.id.bt8, R.id.bt9};
-//    private int[] OperatorButton = {R.id.MinuseBt, R.id.PluseBt};
     ImageButton buttonCLC;
-    //    double nr1, nr2;
-    boolean forSharedPref ;
+
     final String Values = "values";
     SharedPreferences sharedPref;
+    int values = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculator);
-        forSharedPref = true;
 
 
         String UserName = getIntent().getExtras().getString("UserName");
@@ -75,9 +72,9 @@ public class Calculator extends AppCompatActivity {
                 String savedText = sharedPref.getString(Values, "");
                 //save values
 
-                if (editor.equals(null)) {
+                if (values == 1) {
                     Toast.makeText(Calculator.this, "It emty, please calculate something", Toast.LENGTH_SHORT).show();
-                } else {
+                } else if (values == 2) {
 
 
                     Toast.makeText(Calculator.this, savedText, Toast.LENGTH_SHORT).show();
@@ -92,11 +89,10 @@ public class Calculator extends AppCompatActivity {
             public void onClick(View view) {
 
                 String equalsEpt = editText.getText().toString();
-                if (TextUtils.isEmpty(equalsEpt)){
+                if (TextUtils.isEmpty(equalsEpt)) {
 
-                }
-                else {
-                    forSharedPref = false;
+                } else {
+                    values = 2;
                     Expression expression = new ExpressionBuilder(equalsEpt).build();
                     double result = expression.evaluate();
                     editText.setText(Double.toString(result));
@@ -192,15 +188,32 @@ public class Calculator extends AppCompatActivity {
         buttonPluse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                editText.append(buttonPluse.getText());
+                String empty = editText.getText().toString();
+
+                if (TextUtils.isEmpty(empty)) {
+
+                } else if (empty.endsWith("+")) {
+
+                } else {
+                    editText.append(buttonPluse.getText());
+
+                }
 
             }
         });
         buttonMinuse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                editText.append(buttonMinuse.getText());
+                String empty = editText.getText().toString();
 
+                if (TextUtils.isEmpty(empty)) {
+
+                } else if (empty.endsWith("-")) {
+
+                } else {
+                    editText.append(buttonMinuse.getText());
+
+                }
             }
         });
 
